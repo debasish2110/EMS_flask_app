@@ -1,0 +1,48 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="head_container">
+        <div class="head_container">
+            <div class="header">
+                <a href="{{ url_for('index') }}" class="add-task-button">Home</a>
+                <h1 class="form-label">Task Tracker</h1>
+                <a href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="L&T Tech Services Logo" class="logo">
+                </a>
+            </div>
+        </div>
+        <form method="post" action="/add_task">
+            <label class="form-label" for="taskID">Task ID:</label>
+            <input class="form-input" type="text" id="taskID" name="taskID" required>
+
+            <label class="form-label" for="sprint">Sprint:</label>
+            <input class="form-input" type="text" id="sprint" name="sprint" required>
+
+            <label class="form-label" for="employeeName">Employee Name:</label>
+            <input class="form-input" type="text" id="employeeName" name="employeeName" required>
+
+            <label class="form-label" for="startDate">Start Date and Time:</label>
+            <input class="form-input" type="text" id="startDate" name="startDate" placeholder="DD-MM-YYYY HH:MM" 
+            pattern="\d{2}-\d{2}-\d{4} \d{2}:\d{2}" title="Enter a valid date and time (DD-MM-YYYY HH:MM)" required>
+        
+            <label class="form-label" for="endDate">End Date and Time:</label>
+            <input class="form-input" type="text" id="endDate" name="endDate" placeholder="DD-MM-YYYY HH:MM" 
+            pattern="\d{2}-\d{2}-\d{4} \d{2}:\d{2}" title="Enter a valid date and time (DD-MM-YYYY HH:MM)" required>
+            
+            <label class="form-label" for="remark">Remark:</label>
+            <input class="form-input" type="text" id="remark" name="remark" required>
+            
+            <button type="submit">submit</button>
+        </form>
+    </div>
+</body>
+</html>

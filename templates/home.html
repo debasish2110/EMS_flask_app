@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Tracker - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="head_container">
+        <div class="head_container">
+            <div class="header">
+                {% if search %}
+                    <a href="{{ url_for('index') }}" class="add-task-button">Home</a>
+                {% else %}
+                    <a href="{{ url_for('export') }}" class="add-task-button">Export</a>
+                {% endif %}
+                <h1 class="form-label">Task Tracker - Home</h1>
+                <a href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="L&T Tech Services Logo" class="logo">
+                </a>
+            </div>
+        </div>
+        <div class="search-container">
+            <form action="{{ url_for('search') }}" method="post">
+                <div class="search-fields">
+                    <label for="search_criteria">Search by:</label>
+                    <select name="search_criteria" id="search_criteria">
+                        {% for criteria in search_criteria %}
+                            <option value="{{ criteria }}" {% if criteria == selected_criteria %}selected{% endif %}>{{ criteria }}</option>
+                        {% endfor %}
+                    </select>
+        
+                    <label for="search_query">Enter value:</label>
+                    <input type="text" name="search_query" id="search_query" placeholder="Search..." class="search-input">
+                    <button type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+        <table id="tasksTable">
+            <thead>
+                <tr>
+                    <th>Task ID</th>
+                    <th>Sprint</th>
+                    <th>Employee Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Duration</th>
+                    <th>Remark</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                    <tr>
+                        <td>{{ task.taskID }}</td>
+                        <td>{{ task.sprint }}</td>
+                        <td>{{ task.employeeName }}</td>
+                        <td>{{ task.startDate }}</td>
+                        <td>{{ task.endDate }}</td>
+                        <td>{{ task.duration }}</td>
+                        <td>{{ task.remark }}</td>
+                        <td>
+                            <a href="{{ url_for('edit_task', task_id=task.taskID) }}" class="add-task-button small-button">Edit</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="add-task-container">
+            {% if search %}
+                <a href="{{ url_for('add_task') }}" class="add-task-button">Add Task</a>
+            {% else %}
+                <a href="{{ url_for('add_task') }}" class="add-task-button">Add Task</a>
+                <a href="{{ url_for('confirm_clear') }}" class="add-task-button">Clear All</a>
+            {% endif %}
+        </div>
+    </div>
+    {% include 'copyright.html' %}
+</body>
+</html>

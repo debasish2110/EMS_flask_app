@@ -1,0 +1,34 @@
+<!-- templates/confirm_clear.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Clear</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <div class="head_container">
+            <div class="header">
+                <a href="{{ url_for('index') }}" class="add-task-button">Home</a>
+                <h1 class="form-label">Task Tracker - Confirm Clear</h1>
+                <a href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="L&T Tech Services Logo" class="logo">
+                </a>
+            </div>
+        </div>
+        <div class="confirmation-container">
+            <h2>Confirm Clear</h2>
+            <p>Are you sure you want to clear all tasks? Press Yes for clear, press Home button up to return.</p>
+            <div class="add-task-container">
+                <a href="{{ url_for('clear_tasks') }}" class="add-task-button small-button">Yes</a>
+                <a href="{{ url_for('index') }}" class="add-task-button small-green-button">Go Back</a>
+            </div>
+        </div>
+    </div>
+    {% include 'copyright.html' %}
+</body>
+</html>
