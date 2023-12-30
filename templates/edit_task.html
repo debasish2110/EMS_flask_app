@@ -35,8 +35,8 @@
             <input class="form-input" type="text" id="endDate" name="endDate" value="{{ task.endDate }}" placeholder="DD-MM-YYYY HH:MM" 
                 pattern="\d{2}-\d{2}-\d{4} \d{2}:\d{2}" title="Enter a valid date and time (DD-MM-YYYY HH:MM)" required>
 
-            <label class="form-label" for="remark">Remark:</label>
-            <input class="form-input" type="text" id="remark" name="remark" value="{{ task.remark }}" required>
+            <label class="form-label" for="status">Status:</label>
+            <input class="form-input" type="text" id="status" name="status" value="{{ task.status }}" required>
 
             <button type="submit">Save</button>
             <button type="submit" formaction="{{ url_for('delete_task', task_id=task.taskID) }}" onsubmit="return confirm('Are you sure you want to delete this task?')">Delete</button>

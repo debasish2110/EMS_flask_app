@@ -5,14 +5,14 @@ from utils.utilities import calculate_duration, validate_date_time
 app = Flask(__name__)
 init_app(app=app)
 
-# search_criteria = ["taskID", "sprint", "employeeName", "startDate", "endDate", "duration", "remark"]
+# search_criteria = ["taskID", "sprint", "employeeName", "startDate", "endDate", "duration", "status"]
 search_criteria = {
     "Task ID": "taskID",
     "Sprint": "sprint",
     "Employee Name": "employeeName",
     "Start Date": "startDate",
     "End Date": "endDate",
-    "Remark": "remark"
+    "Status": "status"
 }
 
 @app.route('/')
@@ -41,7 +41,7 @@ def add_task():
                 'employeeName': request.form['employeeName'],
                 'startDate': request.form['startDate'],
                 'endDate': request.form['endDate'],
-                'remark': request.form['remark'],
+                'status': request.form['status'],
             }
             # Adding duration to task_data
             task_data['duration'] = duration
@@ -74,7 +74,7 @@ def edit_task(task_id):
             task.employeeName = request.form['employeeName']
             task.startDate = request.form['startDate']
             task.endDate = request.form['endDate']
-            task.remark = request.form['remark']
+            task.status = request.form['status']
             task.duration = duration
 
             db.session.commit()

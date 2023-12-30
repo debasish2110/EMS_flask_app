@@ -8,6 +8,8 @@ __pycache__/
 
 # venv
 trackVnv/
+db_config.py
+
 
 # Distribution / packaging
 .Python

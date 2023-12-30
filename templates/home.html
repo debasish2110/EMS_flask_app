@@ -48,7 +48,7 @@
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>Duration</th>
-                    <th>Remark</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -61,7 +61,7 @@
                         <td>{{ task.startDate }}</td>
                         <td>{{ task.endDate }}</td>
                         <td>{{ task.duration }}</td>
-                        <td>{{ task.remark }}</td>
+                        <td>{{ task.status }}</td>
                         <td>
                             <a href="{{ url_for('edit_task', task_id=task.taskID) }}" class="add-task-button small-button">Edit</a>
                         </td>

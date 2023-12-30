@@ -1,13 +1,9 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from db_config import HOST, USER, PASSWORD, DATABASE
 import secrets
 
 db = SQLAlchemy()
-
-HOST = 'localhost'
-USER = 'root'
-PASSWORD = 'r00T#21!'
-DATABASE = 'task_tracker'
 
 class Task(db.Model):
     taskID = db.Column(db.String(50), nullable=False, primary_key=True)
@@ -16,7 +12,8 @@ class Task(db.Model):
     startDate = db.Column(db.String(20), nullable=False)
     endDate = db.Column(db.String(20), nullable=False)
     duration = db.Column(db.String(255), nullable=False)
-    remark = db.Column(db.String(255), nullable=False)
+    status = db.Column(db.String(50), nullable=False)
+    remark = db.Column(db.String(1000), nullable=True)
 
 def init_app(app):
     # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
