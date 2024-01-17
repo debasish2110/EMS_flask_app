@@ -31,15 +31,21 @@
             <input class="form-input" type="text" id="employeeName" name="employeeName" required>
 
             <label class="form-label" for="startDate">Start Date and Time:</label>
-            <input class="form-input" type="text" id="startDate" name="startDate" placeholder="DD-MM-YYYY HH:MM" 
+            <input class="form-input" type="date" id="startDate" name="startDate" placeholder="DD-MM-YYYY HH:MM" 
             pattern="\d{2}-\d{2}-\d{4} \d{2}:\d{2}" title="Enter a valid date and time (DD-MM-YYYY HH:MM)" required>
         
             <label class="form-label" for="endDate">End Date and Time:</label>
-            <input class="form-input" type="text" id="endDate" name="endDate" placeholder="DD-MM-YYYY HH:MM" 
+            <input class="form-input" type="date" id="endDate" name="endDate" placeholder="DD-MM-YYYY HH:MM" 
             pattern="\d{2}-\d{2}-\d{4} \d{2}:\d{2}" title="Enter a valid date and time (DD-MM-YYYY HH:MM)" required>
             
             <label class="form-label" for="status">Status:</label>
-            <input class="form-input" type="text" id="status" name="status" required>
+            <div class="status-container">
+                <select class="status-dropdown" id="status" name="status" required>
+                    <option value="completed">Completed</option>
+                    <option value="automation_pending">Automation Pending</option>
+                    <option value="manual_pending">Manual Pending</option>
+                </select>
+            </div>
             
             <button type="submit">submit</button>
         </form>

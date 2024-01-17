@@ -1,9 +1,13 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from db_config import HOST, USER, PASSWORD, DATABASE
+# from db_config import HOST, USER, PASSWORD, DATABASE
 import secrets
 
 db = SQLAlchemy()
+HOST = 'localhost'
+USER = 'root'
+PASSWORD = 'r00T#21!'
+DATABASE = 'task_tracker'
 
 class Task(db.Model):
     taskID = db.Column(db.String(50), nullable=False, primary_key=True)
